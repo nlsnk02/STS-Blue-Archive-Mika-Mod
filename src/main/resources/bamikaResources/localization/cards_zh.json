@@ -1,0 +1,20 @@
+{
+  "hannina:TestCard": {
+    "NAME": "测试",
+    "DESCRIPTION": "册册册册册册册册册册册册册册册",
+    "UPGRADE_DESCRIPTION": "wwwwww",
+    "EXTENDED_DESCRIPTION": [
+      "wwwwww"
+    ]
+  },
+  "bamika:MikaStrike": {
+    "NAME": "猫猫打击",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:MikaDefence": {
+    "NAME": "猫猫防御",
+    "DESCRIPTION": "获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  }
+}
