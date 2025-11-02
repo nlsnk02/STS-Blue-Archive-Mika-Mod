@@ -3,15 +3,14 @@ package bamika.utils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.cards.blue.Hologram;
+import com.megacrit.cardcrawl.cards.red.Exhume;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.BufferPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-import hannina.actions.ChangeCharColorAction;
 import bamika.modcore.Enums;
-import hannina.powers.AntiUnionPower;
-import hannina.powers.FusionPower;
-import hannina.powers.UnionPower;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -50,42 +49,6 @@ public class ModHelper {
                 (AbstractDungeon.getCurrRoom()).phase == AbstractRoom.RoomPhase.COMBAT;
     }
 
-    public static AbstractCard.CardColor getPlayerColor() {
-        if (isInCombat() && AbstractDungeon.player.hasPower(UnionPower.POWER_ID)) {
-            return ((UnionPower) (AbstractDungeon.player.getPower(UnionPower.POWER_ID))).color;
-        }
-        return AbstractDungeon.player.getCardColor();
-    }
-
-    public static void enterRandomColor() {
-        ArrayList<AbstractCard.CardColor> colors = new ArrayList<>();
-        colors.add(AbstractCard.CardColor.RED);
-        colors.add(AbstractCard.CardColor.BLUE);
-        colors.add(AbstractCard.CardColor.GREEN);
-        colors.add(AbstractCard.CardColor.PURPLE);
-        colors.remove(ModHelper.getPlayerColor());
-        AbstractCard.CardColor color = colors.get(AbstractDungeon.cardRandomRng.random(colors.size() - 1));
-        AbstractDungeon.actionManager.addToBottom(new ChangeCharColorAction(color));
-
-    }
-
-    public static boolean checkHoverability(AbstractCard card) {
-        if (AbstractDungeon.player == null) return false;
-
-        switch (AbstractDungeon.screen) {
-            case NONE:
-                return AbstractDungeon.player.hoveredCard == card;
-            case MASTER_DECK_VIEW:
-                return AbstractDungeon.player.masterDeck.contains(card) && card.hb.hovered;
-            case GAME_DECK_VIEW:
-                return AbstractDungeon.player.drawPile.contains(card) && card.hb.hovered;
-            case EXHAUST_VIEW:
-                return AbstractDungeon.player.exhaustPile.contains(card) && card.hb.hovered;
-            case DISCARD_VIEW:
-                return AbstractDungeon.player.discardPile.contains(card) && card.hb.hovered;
-        }
-        return false;
-    }
 
     //照抄的cardgroup的resetCardBeforeMoving
     public static void refreshCard(AbstractCard c) {
@@ -99,5 +62,44 @@ public class ModHelper {
         c.stopGlowing();
         c.setAngle(0);
         c.flashVfx = null;
+    }
+
+    //溯时
+    public static void timeTracing(AbstractCard c, CardGroup group) {
+        if(group.type == CardGroup.CardGroupType.DISCARD_PILE) {
+            if (AbstractDungeon.player.hand.size() < 10) {
+                AbstractDungeon.player.hand.addToHand(c);
+                AbstractDungeon.player.discardPile.removeCard(c);
+            }
+        }
+
+        if(group.type == CardGroup.CardGroupType.EXHAUST_PILE) {
+            if (AbstractDungeon.player.hand.size() < 10) {
+
+                c.unfadeOut();
+                AbstractDungeon.player.hand.addToHand(c);
+                if (AbstractDungeon.player.hasPower("Corruption") && c.type == AbstractCard.CardType.SKILL) {
+                    c.setCostForTurn(-9);
+                }
+
+                AbstractDungeon.player.exhaustPile.removeCard(c);
+
+                c.unhover();
+                c.fadingOut = false;
+            }
+        }
+
+        if(group.type == CardGroup.CardGroupType.HAND){
+            AbstractDungeon.player.hand.moveToDeck(c, true);
+            AbstractDungeon.player.hand.removeCard(c);
+        }
+
+        if(group.type == CardGroup.CardGroupType.DRAW_PILE){
+            AbstractDungeon.player.drawPile.moveToDiscardPile(c);
+        }
+
+        c.lighten(false);
+        c.applyPowers();
+        AbstractDungeon.player.hand.refreshHandLayout();
     }
 }

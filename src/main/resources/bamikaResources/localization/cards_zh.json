@@ -1,5 +1,5 @@
 {
-  "hannina:TestCard": {
+  "bamika:TestCard": {
     "NAME": "测试",
     "DESCRIPTION": "册册册册册册册册册册册册册册册",
     "UPGRADE_DESCRIPTION": "wwwwww",
@@ -8,13 +8,23 @@
     ]
   },
   "bamika:MikaStrike": {
-    "NAME": "猫猫打击",
+    "NAME": "打击",
     "DESCRIPTION": "造成 !D! 点伤害。",
     "UPGRADE_DESCRIPTION": "wwwwww"
   },
   "bamika:MikaDefence": {
-    "NAME": "猫猫防御",
+    "NAME": "防御",
     "DESCRIPTION": "获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Shensishulv": {
+    "NAME": "深思熟虑",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL bamika:溯时 一张手牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:ConciseStrike": {
+    "NAME": "简易打击",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL bamika:回想 ：在你下次打出前，其耗能变为0。",
     "UPGRADE_DESCRIPTION": "wwwwww"
   }
 }

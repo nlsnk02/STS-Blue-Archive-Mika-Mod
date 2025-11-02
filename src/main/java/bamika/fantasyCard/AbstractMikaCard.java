@@ -2,16 +2,18 @@ package bamika.fantasyCard;
 
 import bamika.modcore.Enums;
 import bamika.utils.ModHelper;
+import bamika.utils.RecollectManager;
+import basemod.abstracts.AbstractCardModifier;
 import basemod.abstracts.CustomCard;
+import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import java.util.ArrayList;
 
 public abstract class AbstractMikaCard extends CustomCard {
     private static final TextureAtlas cardAtlas = new TextureAtlas(Gdx.files.internal("cards/cards.atlas"));
@@ -36,7 +38,7 @@ public abstract class AbstractMikaCard extends CustomCard {
             CardTarget TARGET,
             CardColor color
     ) {
-        super("hannina:" + NAME, getCardStrings(NAME).NAME, getPicPath(NAME, TYPE),
+        super("bamika:" + NAME, getCardStrings(NAME).NAME, getPicPath(NAME, TYPE),
                 COST, getCardStrings(NAME).DESCRIPTION, TYPE, color, RARITY, TARGET);
         cardStrings = getCardStrings(NAME);
     }
@@ -62,13 +64,17 @@ public abstract class AbstractMikaCard extends CustomCard {
 
     public static CardStrings getCardStrings(String name) {
         return CardCrawlGame.languagePack.
-                getCardStrings("hannina:" + name);
+                getCardStrings("bamika:" + name);
     }
 
     public void steal(AbstractCard c) {
         String img = c.assetUrl;
         this.portrait = AbstractMikaCard.cardAtlas.findRegion(img);
         this.assetUrl = img;
+    }
+
+    public void onRecall() {
+
     }
 
     @Override

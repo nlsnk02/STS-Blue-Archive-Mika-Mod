@@ -11,7 +11,6 @@ public class MikaDefence extends AbstractMikaCard {
     public MikaDefence() {
         super(MikaDefence.class.getSimpleName(), 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
         this.block = this.baseBlock = 5;
-        this.magicNumber = this.baseMagicNumber = 0;
         this.tags.add(CardTags.STARTER_DEFEND);
     }
 

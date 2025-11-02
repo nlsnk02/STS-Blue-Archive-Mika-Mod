@@ -85,13 +85,21 @@ public class Mika extends CustomPlayer {
         //添加初始卡组
         ArrayList<String> retVal = new ArrayList<>();
 
-        String id = (new Strike_Red()).cardID;
+        retVal.add("bamika:MikaStrike");
+        retVal.add("bamika:MikaStrike");
+        retVal.add("bamika:MikaStrike");
+        retVal.add("bamika:MikaStrike");
+        retVal.add("bamika:MikaStrike");
 
-        retVal.add(id);
-        retVal.add(id);
-        retVal.add(id);
-        retVal.add(id);
-        retVal.add(id);
+        retVal.add("bamika:MikaDefence");
+        retVal.add("bamika:MikaDefence");
+        retVal.add("bamika:MikaDefence");
+        retVal.add("bamika:MikaDefence");
+        retVal.add("bamika:MikaDefence");
+
+        retVal.add("bamika:Shensishulv");
+
+        retVal.add("bamika:ConciseStrike");
 
         return retVal;
     }
@@ -115,7 +123,7 @@ public class Mika extends CustomPlayer {
                 flavor, // 人物介绍
                 STARTING_HP, // 当前血量
                 MAX_HP, // 最大血量
-                2, // 初始充能球栏位
+                0, // 初始充能球栏位
                 STARTING_GOLD, // 初始携带金币
                 DRAW_SIZE, // 每回合抽牌数量
                 this, // 别动

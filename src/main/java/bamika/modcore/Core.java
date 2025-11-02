@@ -4,6 +4,7 @@ import bamika.character.Mika;
 import bamika.misc.SaveData;
 import bamika.utils.ConfigHelper;
 import bamika.utils.ModHelper;
+import bamika.utils.RecollectManager;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.ModPanel;
@@ -95,7 +96,7 @@ public class Core implements
     @Override
     public void receiveEditCards() {
         logger.info("================加入卡牌=============");
-        (new AutoAdd("hannina"))
+        (new AutoAdd("bamika"))
                 .packageFilter("bamika.cards")
                 .any(AbstractCard.class, (info, c) -> {
                     BaseMod.addCard(c);
@@ -119,7 +120,7 @@ public class Core implements
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
         if (keywords != null) {
             for (Keyword keyword : keywords) {
-                BaseMod.addKeyword("hannina", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
+                BaseMod.addKeyword("bamika", keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION);
             }
         }
         logger.info("===============加载关键字===============");
@@ -181,8 +182,9 @@ public class Core implements
 
         String potionStrings = Gdx.files.internal(potion).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(PotionStrings.class, potionStrings);
-      String eventStrings = Gdx.files.internal(event).readString(String.valueOf(StandardCharsets.UTF_8));
-      BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
+
+        String eventStrings = Gdx.files.internal(event).readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(EventStrings.class, eventStrings);
 
         String uiStrings = Gdx.files.internal(ui).readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
@@ -213,10 +215,12 @@ public class Core implements
 
     @Override
     public void receiveOnBattleStart(AbstractRoom r) {
+        RecollectManager.cardPositions.clear();
     }
 
     @Override
     public void receivePostBattle(AbstractRoom abstractRoom) {
+        RecollectManager.cardPositions.clear();
     }
 
     @Override
@@ -264,6 +268,7 @@ public class Core implements
 
     @Override
     public void receivePostUpdate() {
+        RecollectManager.update();
     }
 }
 
