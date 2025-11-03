@@ -20,6 +20,8 @@ public abstract class AbstractMikaCard extends CustomCard {
 
     public CardStrings cardStrings;
 
+    public boolean exhaustOnlyOnce;
+
     public AbstractMikaCard(
             String NAME,
             int COST,
@@ -41,6 +43,7 @@ public abstract class AbstractMikaCard extends CustomCard {
         super("bamika:" + NAME, getCardStrings(NAME).NAME, getPicPath(NAME, TYPE),
                 COST, getCardStrings(NAME).DESCRIPTION, TYPE, color, RARITY, TARGET);
         cardStrings = getCardStrings(NAME);
+        exhaustOnlyOnce = false;
     }
 
     /*
@@ -75,6 +78,10 @@ public abstract class AbstractMikaCard extends CustomCard {
 
     public void onRecall() {
 
+    }
+
+    public void setRecollectCard() {
+        this.tags.add(Enums.RECOLLECT);
     }
 
     @Override

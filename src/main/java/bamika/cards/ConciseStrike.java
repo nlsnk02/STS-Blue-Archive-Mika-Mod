@@ -14,11 +14,13 @@ public class ConciseStrike extends AbstractMikaCard {
         super(ConciseStrike.class.getSimpleName(), 2, CardType.ATTACK, CardRarity.BASIC, CardTarget.ENEMY);
         this.damage = this.baseDamage = 14;
         this.tags.add(CardTags.STRIKE);
+        setRecollectCard();
     }
 
     @Override
     public void onRecall(){
         this.freeToPlayOnce = true;
+        this.flash();
     }
 
     @Override

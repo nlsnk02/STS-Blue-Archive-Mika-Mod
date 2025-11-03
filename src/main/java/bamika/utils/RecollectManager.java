@@ -23,6 +23,7 @@ public class RecollectManager {
         public CardGroup.CardGroupType position;
         public CardGroup.CardGroupType position_last;
 
+        //这个在update中更新
         public boolean isRecalled;
 
         public CardPosition() {
@@ -43,7 +44,6 @@ public class RecollectManager {
                 position_last = position;
 
             if (getPositionValue(position) - getPositionValue(position_last) == 1) {
-                isRecalled = true;
                 shouldRecall = true;
             }
 
@@ -76,16 +76,20 @@ public class RecollectManager {
         cardPositions.keySet().stream().forEach(c -> {
             CardPosition p = cardPositions.get(c);
             if (p.update()) {
-                if (c instanceof AbstractMikaCard) {
+                if (c instanceof AbstractMikaCard && !p.isRecalled) {
                     ((AbstractMikaCard) c).onRecall();
                 }
 
+                p.isRecalled = true;
                 CardModifierManager.addModifier(c, new GlowModifier());
             }
         });
     }
 
     private static void updatePile(CardGroup group) {
+        /*
+        确定状态，更新或添加到cardPosition里
+         */
         for (AbstractCard c : group.group) {
             if (cardPositions.containsKey(c)) {
                 CardPosition pos = cardPositions.get(c);
@@ -98,8 +102,36 @@ public class RecollectManager {
 
     public static boolean isRecalled(AbstractCard c) {
         if (cardPositions.containsKey(c)) return cardPositions.get(c).isRecalled;
-        ModHelper.logger.error("=========error recalled======");
         cardPositions.put(c, new CardPosition());
         return false;
+    }
+
+    public static void flushRecall(AbstractCard c, boolean triggerEffect) {
+        if (!isRecalled(c)) {
+            cardPositions.get(c).isRecalled = true;
+            CardModifierManager.addModifier(c, new GlowModifier());
+
+            if (c instanceof AbstractMikaCard && triggerEffect) {
+                ((AbstractMikaCard) c).onRecall();
+            }
+        }
+    }
+
+    public static void copyRecollectStatus(AbstractCard toCopy, AbstractCard newCard) {
+        if (isRecalled(toCopy)) {
+            CardPosition pNewCard = new CardPosition();
+            CardPosition p2Copy = cardPositions.get(toCopy);
+
+            pNewCard.position = p2Copy.position;
+            pNewCard.position_last = p2Copy.position_last;
+            pNewCard.isRecalled = p2Copy.isRecalled;
+
+            cardPositions.put(newCard, pNewCard);
+            if (pNewCard.isRecalled) {
+                CardModifierManager.addModifier(newCard, new GlowModifier());
+            }
+        } else {
+            cardPositions.put(newCard, new CardPosition());
+        }
     }
 }

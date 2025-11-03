@@ -26,5 +26,38 @@
     "NAME": "简易打击",
     "DESCRIPTION": "造成 !D! 点伤害。 NL bamika:回想 ：在你下次打出前，其耗能变为0。",
     "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Zhongjiaqiangong": {
+    "NAME": "重甲浅攻",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 获得 !B! 点 格挡 。 NL bamika:回想 ：交换这两个数字。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Yijingzhidong": {
+    "NAME": "以静制动",
+    "DESCRIPTION": "保留 。 NL 造成等同于敌人当前攻击意图数值的伤害。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 造成等同于敌人当前攻击意图数值两倍的伤害。",
+    "EXTENDED_DESCRIPTION": [
+      " NL (%s点)"
+    ]
+  },
+  "bamika:Huiyisuipian": {
+    "NAME": "回忆碎片",
+    "DESCRIPTION": "增加一张随机的 bamika:回想 过的牌到你的手牌，这张牌在本回合耗能变为0。 NL 消耗。",
+    "UPGRADE_DESCRIPTION": "wwwwwww"
+  },
+  "bamika:Zhuifu": {
+    "NAME": "追复",
+    "DESCRIPTION": "将你使用的上 !M! 张牌放入手牌。 NL 如果其中有牌具有 消耗 或是能力牌， 消耗 自身。",
+    "UPGRADE_DESCRIPTION": "wwwwwww"
+  },
+  "bamika:KyrieEleison": {
+    "NAME": "主啊，求您垂怜",
+    "DESCRIPTION": "保留， bamika:溯时 。造成 !D! 点伤害3次，然后造成 !B! 点伤害。目标如果还有不少于 !M! %生命值，伤害翻倍。",
+    "UPGRADE_DESCRIPTION": "wwwwwww"
+  },
+  "bamika:Weiyuchoumou": {
+    "NAME": "未雨绸缪",
+    "DESCRIPTION": "选择一张手牌，将 !M! 张具有 保留 的复制品加入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "wwwwwww"
   }
 }
