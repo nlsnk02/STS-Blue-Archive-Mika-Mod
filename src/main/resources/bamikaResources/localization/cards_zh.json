@@ -59,5 +59,20 @@
     "NAME": "未雨绸缪",
     "DESCRIPTION": "选择一张手牌，将 !M! 张具有 保留 的复制品加入你的手牌。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "wwwwwww"
+  },
+  "bamika:Xianfazhisheng": {
+    "NAME": "先发制胜",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 每有一张其他手牌，重复一次。",
+    "UPGRADE_DESCRIPTION": "wwwwwww"
+  },
+  "bamika:Biyouhuixiang": {
+    "NAME": "必有回响",
+    "DESCRIPTION": "每当有牌被 bamika:回想 ，增加它的一张具有 消耗 和 保留 的已 bamika:回想 复制到手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当有牌被 bamika:回想 ，增加它的一张具有 消耗 和 保留 的已 bamika:回想 复制到手牌。"
+  },
+  "bamika:Sijierdong": {
+    "NAME": "伺机而动",
+    "DESCRIPTION": "每当有牌被 bamika:回想 ，增加它的一张具有 消耗 和 保留 的已 bamika:回想 复制到手牌。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每当有牌被 bamika:回想 ，增加它的一张具有 消耗 和 保留 的已 bamika:回想 复制到手牌。"
   }
 }

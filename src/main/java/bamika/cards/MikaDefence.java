@@ -1,6 +1,7 @@
 package bamika.cards;
 
 import bamika.fantasyCard.AbstractMikaCard;
+import bamika.misc.GameLibraryChecker;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -17,6 +18,7 @@ public class MikaDefence extends AbstractMikaCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new GainBlockAction(p, p, this.block));
+        GameLibraryChecker.check();
     }
 
     @Override

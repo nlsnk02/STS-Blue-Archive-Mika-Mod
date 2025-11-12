@@ -2,9 +2,9 @@ package bamika.utils;
 
 import bamika.fantasyCard.AbstractMikaCard;
 import bamika.misc.GlowModifier;
-import basemod.abstracts.AbstractCardModifier;
+import bamika.misc.OnRecallSubscriber;
+import bamika.modcore.Enums;
 import basemod.helpers.CardModifierManager;
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -76,8 +76,9 @@ public class RecollectManager {
         cardPositions.keySet().stream().forEach(c -> {
             CardPosition p = cardPositions.get(c);
             if (p.update()) {
-                if (c instanceof AbstractMikaCard && !p.isRecalled) {
-                    ((AbstractMikaCard) c).onRecall();
+
+                if(!p.isRecalled) {
+                    cardRecalling(c);
                 }
 
                 p.isRecalled = true;
@@ -100,6 +101,18 @@ public class RecollectManager {
         }
     }
 
+    private static void cardRecalling(AbstractCard c) {
+        if (c instanceof AbstractMikaCard && c.hasTag(Enums.RECOLLECT)) {
+            ((AbstractMikaCard) c).onRecall();
+
+            AbstractDungeon.player.powers.forEach(power -> {
+                if(power instanceof OnRecallSubscriber){
+                    ((OnRecallSubscriber) power).onRecall(c);
+                }
+            });
+        }
+    }
+
     public static boolean isRecalled(AbstractCard c) {
         if (cardPositions.containsKey(c)) return cardPositions.get(c).isRecalled;
         cardPositions.put(c, new CardPosition());
@@ -111,8 +124,8 @@ public class RecollectManager {
             cardPositions.get(c).isRecalled = true;
             CardModifierManager.addModifier(c, new GlowModifier());
 
-            if (c instanceof AbstractMikaCard && triggerEffect) {
-                ((AbstractMikaCard) c).onRecall();
+            if(triggerEffect){
+                cardRecalling(c);
             }
         }
     }
