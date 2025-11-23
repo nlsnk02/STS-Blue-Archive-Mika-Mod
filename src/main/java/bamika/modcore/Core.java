@@ -1,6 +1,6 @@
 package bamika.modcore;
 
-import bamika.cards.Zhenguihuiyi;
+import bamika.cards.Xunyixunlian;
 import bamika.character.Mika;
 import bamika.misc.SaveData;
 import bamika.powers.ZanbifengmangPower;
@@ -221,6 +221,7 @@ public class Core implements
         RecollectManager.cardPositions.clear();
         ZhenguihuiyiPower.cardsPlayed.clear();
         ZanbifengmangPower.idOffset = 0;
+        Xunyixunlian.memoryCount = 0;
     }
 
     @Override

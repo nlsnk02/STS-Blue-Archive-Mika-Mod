@@ -1,7 +1,6 @@
 package bamika.utils;
 
 import bamika.fantasyCard.AbstractMikaCard;
-import bamika.misc.GlowModifier;
 import bamika.misc.OnRecallSubscriber;
 import bamika.modcore.Enums;
 import basemod.helpers.CardModifierManager;
@@ -32,7 +31,7 @@ public class RecollectManager {
             this.isRecalled = false;
         }
 
-        public boolean update() {
+        public boolean checkStatus() {
             /*
             判断卡牌是否应该回想，返回卡牌是否应该触发回响
              */
@@ -75,14 +74,13 @@ public class RecollectManager {
 
         cardPositions.keySet().stream().forEach(c -> {
             CardPosition p = cardPositions.get(c);
-            if (p.update()) {
+            if (p.checkStatus()) {
 
                 if (!p.isRecalled) {
                     cardRecalling(c);
                 }
 
                 p.isRecalled = true;
-                CardModifierManager.addModifier(c, new GlowModifier());
             }
         });
     }
@@ -104,25 +102,34 @@ public class RecollectManager {
     private static void cardRecalling(AbstractCard c) {
         if (c instanceof AbstractMikaCard && c.hasTag(Enums.RECOLLECT)) {
             ((AbstractMikaCard) c).onRecall();
-        }
 
-        AbstractDungeon.player.powers.forEach(power -> {
-            if (power instanceof OnRecallSubscriber) {
-                ((OnRecallSubscriber) power).onRecall(c);
-            }
-        });
+            AbstractDungeon.player.powers.forEach(power -> {
+                if (power instanceof OnRecallSubscriber) {
+                    ((OnRecallSubscriber) power).onRecall(c);
+                }
+            });
+        }
     }
 
+    /*
+    给外部使用的接口
+     */
     public static boolean isRecalled(AbstractCard c) {
+        return c.hasTag(Enums.RECOLLECT) && isRecalledAny(c);
+    }
+
+    /*
+    管理器内部判断，任何一张牌都能被视为“被回想状态”
+     */
+    private static boolean isRecalledAny(AbstractCard c) {
         if (cardPositions.containsKey(c)) return cardPositions.get(c).isRecalled;
         cardPositions.put(c, new CardPosition());
         return false;
     }
 
     public static void flushRecall(AbstractCard c, boolean triggerEffect) {
-        if (!isRecalled(c)) {
+        if (!isRecalledAny(c)) {
             cardPositions.get(c).isRecalled = true;
-            CardModifierManager.addModifier(c, new GlowModifier());
 
             if (triggerEffect) {
                 cardRecalling(c);
@@ -131,14 +138,13 @@ public class RecollectManager {
     }
 
     public static void clearRecall(AbstractCard c) {
-        if (isRecalled(c)) {
+        if (isRecalledAny(c)) {
             cardPositions.get(c).isRecalled = false;
-            CardModifierManager.removeModifiersById(c, "bamika:GlowModifier", true);
         }
     }
 
     public static void copyRecollectStatus(AbstractCard toCopy, AbstractCard newCard) {
-        if (isRecalled(toCopy)) {
+        if (isRecalledAny(toCopy)) {
             CardPosition pNewCard = new CardPosition();
             CardPosition p2Copy = cardPositions.get(toCopy);
 
@@ -147,9 +153,6 @@ public class RecollectManager {
             pNewCard.isRecalled = p2Copy.isRecalled;
 
             cardPositions.put(newCard, pNewCard);
-            if (pNewCard.isRecalled) {
-                CardModifierManager.addModifier(newCard, new GlowModifier());
-            }
         } else {
             cardPositions.put(newCard, new CardPosition());
         }

@@ -6,7 +6,7 @@ import basemod.helpers.CardModifierManager;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 
-public class GlowModifier extends AbstractCardModifier {
+public class ReCollectGlowModifier extends AbstractCardModifier {
     @Override
     public Color getGlow(AbstractCard card) {
         if (RecollectManager.isRecalled(card))
@@ -22,7 +22,7 @@ public class GlowModifier extends AbstractCardModifier {
     public boolean shouldApply(AbstractCard card) {
 
         for (AbstractCardModifier modifier : CardModifierManager.modifiers(card))
-            if (modifier instanceof GlowModifier) {
+            if (modifier instanceof ReCollectGlowModifier) {
                 return false;
             }
         return true;
@@ -35,6 +35,6 @@ public class GlowModifier extends AbstractCardModifier {
 
     @Override
     public AbstractCardModifier makeCopy() {
-        return new GlowModifier();
+        return new ReCollectGlowModifier();
     }
 }

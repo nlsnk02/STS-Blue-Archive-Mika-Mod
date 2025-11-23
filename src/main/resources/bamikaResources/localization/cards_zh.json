@@ -127,8 +127,8 @@
   },
   "bamika:Wojiande": {
     "NAME": "啊，我捡的",
-    "DESCRIPTION": "选择将一张发掘，计算下注，全息影像，火焰纹加入你的手牌。 NL 消耗 。",
-    "UPGRADE_DESCRIPTION": "选择将一张 *发掘 ， *计算下注 ， *全息影像 ， *火焰纹 加入你的手牌。 NL 消耗 。"
+    "DESCRIPTION": "选择将一张 *发掘 ， *计算下注 ， *全息影像 ， *火焰纹 加入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "选择将一张 *发掘+ ， *计算下注+ ， *全息影像+ ， *火焰纹+ 加入你的手牌。 NL 消耗 。"
   },
   "bamika:Suijiyingbian": {
     "NAME": "随机应变",
@@ -161,6 +161,11 @@
   "bamika:Niuzhuan": {
     "NAME": "扭转",
     "DESCRIPTION": "只有 bamika:溯时 过才能打出。 NL 造成 !D! 点伤害，使用后这张牌回到未 bamika:回想 状态。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Xunyixunlian": {
+    "NAME": "寻忆训练",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果本场战斗中你已经打出过了至少 !M! 次寻忆训练，将「 *回忆 」加入你的手牌。",
     "UPGRADE_DESCRIPTION": "wwwwww"
   }
 }

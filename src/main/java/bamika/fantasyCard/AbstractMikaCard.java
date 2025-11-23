@@ -1,5 +1,6 @@
 package bamika.fantasyCard;
 
+import bamika.misc.ReCollectGlowModifier;
 import bamika.modcore.Enums;
 import bamika.utils.ModHelper;
 import bamika.utils.RecollectManager;
@@ -82,6 +83,7 @@ public abstract class AbstractMikaCard extends CustomCard {
 
     public void setRecollectCard() {
         this.tags.add(Enums.RECOLLECT);
+        CardModifierManager.addModifier(this, new ReCollectGlowModifier());
     }
 
     @Override
