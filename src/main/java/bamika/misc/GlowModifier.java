@@ -14,6 +14,10 @@ public class GlowModifier extends AbstractCardModifier {
         return null;
     }
 
+    public String identifier(AbstractCard card) {
+        return "bamika:GlowModifier";
+    }
+
     @Override
     public boolean shouldApply(AbstractCard card) {
 
@@ -26,7 +30,7 @@ public class GlowModifier extends AbstractCardModifier {
 
     @Override
     public boolean isInherent(AbstractCard card) {
-        return true;
+        return false;
     }
 
     @Override

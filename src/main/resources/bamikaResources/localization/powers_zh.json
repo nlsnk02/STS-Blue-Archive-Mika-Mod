@@ -11,5 +11,41 @@
     "DESCRIPTIONS": [
       "回合结束时失去所有 #y格挡 。"
     ]
+  },
+  "bamika:ZhenguihuiyiPower": {
+    "NAME": "珍贵回忆",
+    "DESCRIPTIONS": [
+      "每次打出已经 #y回想 了的牌，再打出 #b",
+      " 次。"
+    ]
+  },
+  "bamika:TujixunlianPower": {
+    "NAME": "突击训练",
+    "DESCRIPTIONS": [
+      "下 #b",
+      " 次打出攻击牌，失去 #b1 点力量"
+    ]
+  },
+  "bamika:JianjinPower": {
+    "NAME": "渐进",
+    "DESCRIPTIONS": [
+      "在你使用牌后，如果与上一张牌相比两张牌的耗能差值为 #b1 ，抽 #b",
+      " 张牌。"
+    ]
+  },
+  "bamika:ZanbifengmangPower": {
+    "NAME": "暂避锋芒",
+    "DESCRIPTIONS": [
+      "回合开始时将",
+      "加入手牌。",
+      "下回合开始时将记录的牌加入手牌"
+    ]
+  },
+  "bamika:SuijiyingbianPower": {
+    "NAME": "免费打出",
+    "DESCRIPTIONS": [
+      "本回合下 #b",
+      " 张牌免费打出。"
+    ]
   }
 }

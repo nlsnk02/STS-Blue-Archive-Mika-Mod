@@ -1,7 +1,10 @@
 package bamika.modcore;
 
+import bamika.cards.Zhenguihuiyi;
 import bamika.character.Mika;
 import bamika.misc.SaveData;
+import bamika.powers.ZanbifengmangPower;
+import bamika.powers.ZhenguihuiyiPower;
 import bamika.utils.ConfigHelper;
 import bamika.utils.ModHelper;
 import bamika.utils.RecollectManager;
@@ -216,6 +219,8 @@ public class Core implements
     @Override
     public void receiveOnBattleStart(AbstractRoom r) {
         RecollectManager.cardPositions.clear();
+        ZhenguihuiyiPower.cardsPlayed.clear();
+        ZanbifengmangPower.idOffset = 0;
     }
 
     @Override

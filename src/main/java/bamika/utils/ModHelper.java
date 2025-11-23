@@ -84,18 +84,41 @@ public class ModHelper {
 
     //溯时
     public static void timeTracing(AbstractCard c, CardGroup cardGroup) {
-        if(cardGroup.type == CardGroup.CardGroupType.HAND){
+        if (cardGroup.type == CardGroup.CardGroupType.HAND) {
             moveCard(c, cardGroup, AbstractDungeon.player.drawPile);
         }
-        if(cardGroup.type == CardGroup.CardGroupType.DISCARD_PILE){
+        if (cardGroup.type == CardGroup.CardGroupType.DISCARD_PILE) {
             moveCard(c, cardGroup, AbstractDungeon.player.hand);
         }
-        if(cardGroup.type == CardGroup.CardGroupType.DRAW_PILE){
+        if (cardGroup.type == CardGroup.CardGroupType.DRAW_PILE) {
             moveCard(c, cardGroup, AbstractDungeon.player.discardPile);
         }
-        if(cardGroup.type == CardGroup.CardGroupType.EXHAUST_PILE){
+        if (cardGroup.type == CardGroup.CardGroupType.EXHAUST_PILE) {
             moveCard(c, cardGroup, AbstractDungeon.player.hand);
         }
+    }
+
+    public static boolean moveCard(AbstractCard c, CardGroup to) {
+        if (to.contains(c)) return false;
+
+        if (AbstractDungeon.player.hand.contains(c)) {
+            moveCard(c, AbstractDungeon.player.hand, to);
+            return true;
+        }
+        if (AbstractDungeon.player.discardPile.contains(c)) {
+            moveCard(c, AbstractDungeon.player.discardPile, to);
+            return true;
+        }
+        if (AbstractDungeon.player.drawPile.contains(c)) {
+            moveCard(c, AbstractDungeon.player.drawPile, to);
+            return true;
+        }
+        if (AbstractDungeon.player.exhaustPile.contains(c)) {
+            moveCard(c, AbstractDungeon.player.exhaustPile, to);
+            return true;
+        }
+
+        return false;
     }
 
     //将牌从一个牌堆移动到一个新的牌堆
@@ -104,7 +127,7 @@ public class ModHelper {
             return;
         }
 
-        if(to.type == from.type){
+        if (to.type == from.type) {
             return;
         }
 
@@ -129,16 +152,16 @@ public class ModHelper {
             AbstractDungeon.player.drawPile.removeCard(c);
         }
 
-        if(to.type == CardGroup.CardGroupType.DRAW_PILE){
+        if (to.type == CardGroup.CardGroupType.DRAW_PILE) {
             from.moveToDeck(c, true);
         }
-        if(to.type == CardGroup.CardGroupType.EXHAUST_PILE){
+        if (to.type == CardGroup.CardGroupType.EXHAUST_PILE) {
             from.moveToExhaustPile(c);
         }
-        if(to.type == CardGroup.CardGroupType.HAND){
+        if (to.type == CardGroup.CardGroupType.HAND) {
             from.moveToHand(c);
         }
-        if(to.type == CardGroup.CardGroupType.DISCARD_PILE){
+        if (to.type == CardGroup.CardGroupType.DISCARD_PILE) {
             from.moveToDiscardPile(c);
         }
         c.lighten(false);

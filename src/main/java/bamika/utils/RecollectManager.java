@@ -77,7 +77,7 @@ public class RecollectManager {
             CardPosition p = cardPositions.get(c);
             if (p.update()) {
 
-                if(!p.isRecalled) {
+                if (!p.isRecalled) {
                     cardRecalling(c);
                 }
 
@@ -104,13 +104,13 @@ public class RecollectManager {
     private static void cardRecalling(AbstractCard c) {
         if (c instanceof AbstractMikaCard && c.hasTag(Enums.RECOLLECT)) {
             ((AbstractMikaCard) c).onRecall();
-
-            AbstractDungeon.player.powers.forEach(power -> {
-                if(power instanceof OnRecallSubscriber){
-                    ((OnRecallSubscriber) power).onRecall(c);
-                }
-            });
         }
+
+        AbstractDungeon.player.powers.forEach(power -> {
+            if (power instanceof OnRecallSubscriber) {
+                ((OnRecallSubscriber) power).onRecall(c);
+            }
+        });
     }
 
     public static boolean isRecalled(AbstractCard c) {
@@ -124,9 +124,16 @@ public class RecollectManager {
             cardPositions.get(c).isRecalled = true;
             CardModifierManager.addModifier(c, new GlowModifier());
 
-            if(triggerEffect){
+            if (triggerEffect) {
                 cardRecalling(c);
             }
+        }
+    }
+
+    public static void clearRecall(AbstractCard c) {
+        if (isRecalled(c)) {
+            cardPositions.get(c).isRecalled = false;
+            CardModifierManager.removeModifiersById(c, "bamika:GlowModifier", true);
         }
     }
 

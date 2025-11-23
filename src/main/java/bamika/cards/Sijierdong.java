@@ -14,6 +14,7 @@ public class Sijierdong extends AbstractMikaCard {
     public Sijierdong() {
         super(Sijierdong.class.getSimpleName(), 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
         this.damage = this.baseDamage = 12;
+        this.selfRetain = true;
     }
 
     @Override

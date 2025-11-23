@@ -17,6 +17,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 public class Shensishulv extends AbstractMikaCard {
     public static final String[] actionTEXT;
 
+    static {
+        UIStrings actionUiStrings = CardCrawlGame.languagePack.getUIString("bamika:Huisu");
+        actionTEXT = actionUiStrings.TEXT;
+    }
+
     public Shensishulv() {
         super(Shensishulv.class.getSimpleName(), 1, CardType.SKILL, CardRarity.BASIC, CardTarget.SELF);
         this.block = this.baseBlock = 9;
@@ -45,10 +50,5 @@ public class Shensishulv extends AbstractMikaCard {
     @Override
     public AbstractCard makeCopy() {
         return new Shensishulv();
-    }
-
-    static {
-        UIStrings actionUiStrings = CardCrawlGame.languagePack.getUIString("bamika:Huisu");
-        actionTEXT = actionUiStrings.TEXT;
     }
 }

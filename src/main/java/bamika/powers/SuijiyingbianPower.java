@@ -1,49 +1,54 @@
 package bamika.powers;
 
-import bamika.misc.OnRecallSubscriber;
+import bamika.actions.PlayACardAction;
 import bamika.utils.ModHelper;
-import basemod.cardmods.ExhaustMod;
-import basemod.cardmods.RetainMod;
-import basemod.helpers.CardModifierManager;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
-import com.megacrit.cardcrawl.actions.common.RemoveAllBlockAction;
+import bamika.utils.RecollectManager;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SijierdongPower extends AbstractPower {
-    public static final String POWER_ID = ModHelper.makeID(SijierdongPower.class.getSimpleName());
+import java.util.HashSet;
+
+public class SuijiyingbianPower extends AbstractPower {
+    public static final String POWER_ID = ModHelper.makeID(SuijiyingbianPower.class.getSimpleName());
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    private static final String PATH128 = ModHelper.makeRelicAd(SijierdongPower.class.getSimpleName(), true);
-    private static final String PATH48 = ModHelper.makeRelicAd(SijierdongPower.class.getSimpleName(), false);
+    private static final String PATH128 = ModHelper.makeRelicAd(SuijiyingbianPower.class.getSimpleName(), true);
+    private static final String PATH48 = ModHelper.makeRelicAd(SuijiyingbianPower.class.getSimpleName(), false);
 
-    public SijierdongPower(AbstractCreature owner) {
+    public SuijiyingbianPower(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.type = PowerType.BUFF;
         this.owner = owner;
+        this.amount = amount;
         loadRegion("heartDef");
 //        this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(PATH128), 0, 0, 84, 84);
 //        this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(PATH48), 0, 0, 32, 32);
         this.updateDescription();
     }
 
+    public void updateDescription() {
+        this.description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1];
+    }
+
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         if (isPlayer) {
-            addToTop(new RemoveAllBlockAction(owner, owner));
-            addToTop(new RemoveSpecificPowerAction(owner, owner, this));
+            addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }
 
-    public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+    @Override
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        addToBot(new ReducePowerAction(this.owner, this.owner, this, 1));
     }
-
 }

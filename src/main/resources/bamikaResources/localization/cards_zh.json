@@ -52,7 +52,7 @@
   },
   "bamika:KyrieEleison": {
     "NAME": "主啊，求您垂怜",
-    "DESCRIPTION": "保留， bamika:溯时 。造成 !D! 点伤害3次，然后造成 !B! 点伤害。目标如果还有不少于 !M! %生命值，伤害翻倍。",
+    "DESCRIPTION": "保留 ， bamika:溯时 。造成 !D! 点伤害3次，然后造成 !B! 点伤害。目标如果还有不少于 !M! %生命值，伤害翻倍。",
     "UPGRADE_DESCRIPTION": "wwwwwww"
   },
   "bamika:Weiyuchoumou": {
@@ -72,7 +72,95 @@
   },
   "bamika:Sijierdong": {
     "NAME": "伺机而动",
-    "DESCRIPTION": "每当有牌被 bamika:回想 ，增加它的一张具有 消耗 和 保留 的已 bamika:回想 复制到手牌。",
-    "UPGRADE_DESCRIPTION": "固有 。 NL 每当有牌被 bamika:回想 ，增加它的一张具有 消耗 和 保留 的已 bamika:回想 复制到手牌。"
+    "DESCRIPTION": "保留 。 NL 造成 !D! 点伤害。 NL 回合结束时移除你的 格挡 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Turanyiquan": {
+    "NAME": "突然一拳☆",
+    "DESCRIPTION": "造成 !D! 点伤害，给予所造成的未被 格挡 的伤害相等的 虚弱 与 易伤 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Qianyao": {
+    "NAME": "前摇",
+    "DESCRIPTION": "造成 !D! 点伤害，获得所造成的未被 格挡 的伤害相等的 活力 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Jianbu": {
+    "NAME": "箭步",
+    "DESCRIPTION": "抽 !M! 张牌并 保留 它们一回合。 NL 其中本身具有 保留 的牌会令你获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "抽 !M! 张牌并 保留 它们一回合。 NL 其中本身具有 保留 的牌会令你获得 !B! 点 格挡 ，那些牌本回合耗能减少一点。"
+  },
+  "bamika:Yisuixin": {
+    "NAME": "易碎心",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 获得一层 脆弱 。 NL 若你已有 脆弱 / 易伤 / 虚弱 ，则改为移除之。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Zhenguihuiyi": {
+    "NAME": "珍贵回忆",
+    "DESCRIPTION": "虚无 。 NL 你的已 bamika:回想 牌额外打出一次。",
+    "UPGRADE_DESCRIPTION": "你的已 bamika:回想 牌额外打出一次。"
+  },
+  "bamika:Moran": {
+    "NAME": "蓦然",
+    "DESCRIPTION": "记录你的手牌，将一张「 *回首 」放入弃牌堆。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Huishou": {
+    "NAME": "回首",
+    "DESCRIPTION": "将记录的牌放入你的手牌，它们视为被 bamika:回想 过。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Chuxvguowang": {
+    "NAME": "储蓄过往",
+    "DESCRIPTION": "保留 。 NL 将上 !M! 张打出的牌储存在此牌里，打出此牌会将它们放回手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Tujixunlian": {
+    "NAME": "突击训练",
+    "DESCRIPTION": "获得 !M! 点 力量 。 NL 在你打出一张攻击牌后，失去1点 力量 。 NL （至多失去以此法获得的 力量 ）",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Jianjin": {
+    "NAME": "渐进",
+    "DESCRIPTION": "在你使用牌后，如果与上一张牌相比两张牌的耗能差值为1，抽一张牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Wojiande": {
+    "NAME": "啊，我捡的",
+    "DESCRIPTION": "选择将一张发掘，计算下注，全息影像，火焰纹加入你的手牌。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "选择将一张 *发掘 ， *计算下注 ， *全息影像 ， *火焰纹 加入你的手牌。 NL 消耗 。"
+  },
+  "bamika:Suijiyingbian": {
+    "NAME": "随机应变",
+    "DESCRIPTION": "保留 。 NL 选择：获得 [E] 并抽 !M! 张牌、本回合你的下一张牌耗能为0、或获得 !B! 点 格挡 与一层残影。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 选择：获得 [E] 并抽 !M! 张牌、本回合你的下两张牌耗能为0、或获得 !B! 点 格挡 与一层残影。",
+    "EXTENDED_DESCRIPTION": [
+      "选择一项执行"
+    ]
+  },
+  "bamika:SuijiyingbianBlur": {
+    "NAME": "点击输入文字",
+    "DESCRIPTION": "获得 !M! 层 *残影 。 NL 获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:SuijiyingbianDraw": {
+    "NAME": "点击输入文字",
+    "DESCRIPTION": "抽 !M! 张牌。 NL 获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:SuijiyingbianFreeCost": {
+    "NAME": "点击输入文字",
+    "DESCRIPTION": "下 !M! 张牌免费打出。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Zanbifengmang": {
+    "NAME": "暂避锋芒",
+    "DESCRIPTION": "bamika:溯时 手牌中的攻击牌，获得 !B! 点 格挡 。 NL 下回合开始时，将这些牌放入你的手牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Niuzhuan": {
+    "NAME": "扭转",
+    "DESCRIPTION": "只有 bamika:溯时 过才能打出。 NL 造成 !D! 点伤害，使用后这张牌回到未 bamika:回想 状态。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
   }
 }

@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -36,7 +37,7 @@ public class PlayACardAction extends AbstractGameAction {
             if (group == null || group.contains(card)) {
                 if (group != null) {
                     group.group.remove(card);
-                    if(group.type == CardGroup.CardGroupType.EXHAUST_PILE)
+                    if (group.type == CardGroup.CardGroupType.EXHAUST_PILE)
                         card.unfadeOut();
                 }
 
@@ -51,6 +52,10 @@ public class PlayACardAction extends AbstractGameAction {
                 card.drawScale = 0.12F;
                 card.targetDrawScale = 0.75F;
                 card.applyPowers();
+
+                if (group == null) {
+                    card.purgeOnUse = true;
+                }
 
                 if (this.target == null && card.target == AbstractCard.CardTarget.ENEMY)
                     this.target = AbstractDungeon.getRandomMonster();
