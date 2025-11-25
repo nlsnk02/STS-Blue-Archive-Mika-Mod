@@ -167,5 +167,94 @@
     "NAME": "寻忆训练",
     "DESCRIPTION": "造成 !D! 点伤害。 NL 如果本场战斗中你已经打出过了至少 !M! 次寻忆训练，将「 *回忆 」加入你的手牌。",
     "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Memory": {
+    "NAME": "回忆",
+    "DESCRIPTION": "保留 。 NL 将三把特别的的 *钥匙 加入你的手牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:MemoryQianXun": {
+    "NAME": "谦逊？",
+    "DESCRIPTION": "本局游戏中 升级 你的所有牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:MemoryHuiShou": {
+    "NAME": "回首？",
+    "DESCRIPTION": "回合开始时从弃牌堆中选择一张牌加入手牌，其下次打出前耗能变为0。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:MemoryPingJing": {
+    "NAME": "平静？",
+    "DESCRIPTION": "在你打出非攻击牌后，获得1点 力量 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Beizhan": {
+    "NAME": "备战",
+    "DESCRIPTION": "保留 。 NL bamika:溯时 手牌中的非攻击牌，抽等量张攻击牌。",
+    "UPGRADE_DESCRIPTION": "保留 。 固有 。 NL bamika:溯时 手牌中的非攻击牌，抽等量张攻击牌。"
+  },
+  "bamika:Tangruochonglai": {
+    "NAME": "倘若重来",
+    "DESCRIPTION": "选择一张不因使用而进入弃牌堆的牌，放入你的手牌并令其下次使用前耗能变为0。",
+    "UPGRADE_DESCRIPTION": "wwwwww",
+    "EXTENDED_DESCRIPTION": [
+      "加入手牌"
+    ]
+  },
+  "bamika:Beihou": {
+    "NAME": "背后就交给您咯☆",
+    "DESCRIPTION": "失去1点 敏捷 ，获得  !M! 点 力量 。 NL bamika:回想 ：此牌不再失去 敏捷 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Yuhuizhuanshu": {
+    "NAME": "迂回战术",
+    "DESCRIPTION": "本回合你造成的伤害增加50%。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Zhuanzhu": {
+    "NAME": "专注",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 如果与上一张攻击牌目标相同，再造成一次。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Fuxian": {
+    "NAME": "复现",
+    "DESCRIPTION": "bamika:溯时 一张牌。 NL 将弃牌堆的一张牌加入手牌，其耗能在下次打出前变为0。",
+    "UPGRADE_DESCRIPTION": "bamika:溯时 一张牌。 NL 将弃牌堆/消耗堆的一张牌加入手牌，其耗能在下次打出前变为0。",
+    "EXTENDED_DESCRIPTION": [
+      "加入手牌"
+    ]
+  },
+  "bamika:Wosuonengzhuazhu": {
+    "NAME": "我所能抓住的……",
+    "DESCRIPTION": "丢弃所有 保留 牌，抽两倍数量的牌。 NL 这些牌获得 保留 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "丢弃所有 保留 牌，抽两倍数量的牌。 NL 这些牌获得 保留 。"
+  },
+  "bamika:Beixuanfangan": {
+    "NAME": "备选方案",
+    "DESCRIPTION": "bamika:溯时 !M! 张手牌。 NL 抽 !M! 张牌。 NL 下回合开始时，多抽 !M! 张牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww",
+    "EXTENDED_DESCRIPTION": [
+      "溯时"
+    ]
+  },
+  "bamika:Xixuan": {
+    "NAME": "细选",
+    "DESCRIPTION": "抽 !M! 张牌，将其中没有 保留 的牌洗回抽牌堆。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Lingganzhaxian": {
+    "NAME": "灵感乍现",
+    "DESCRIPTION": "复制你的手牌并使它们获得 虚无 与 消耗 。",
+    "UPGRADE_DESCRIPTION": "复制你的手牌并使它们获得 虚无 与 消耗 ，耗能减少1。"
+  },
+  "bamika:Shouji": {
+    "NAME": "收集",
+    "DESCRIPTION": "你每有一张手牌，抽一张牌。",
+    "UPGRADE_DESCRIPTION": "抽一张牌，你每有一张手牌，重复一次。"
+  },
+  "bamika:Kesuxingjiyi": {
+    "NAME": "可塑性记忆",
+    "DESCRIPTION": "虚无 。 NL 记录你每回合打出的第一张牌，下回合开始，将其放入你的手牌且耗能变为0。（只限在抽牌堆或弃牌堆的牌）",
+    "UPGRADE_DESCRIPTION": "记录你每回合打出的第一张牌，下回合开始，将其放入你的手牌且耗能变为0。（只限在抽牌堆或弃牌堆的牌）"
   }
 }

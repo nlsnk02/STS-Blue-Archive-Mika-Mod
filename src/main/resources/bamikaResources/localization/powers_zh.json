@@ -47,5 +47,27 @@
       "本回合下 #b",
       " 张牌免费打出。"
     ]
+  },
+  "bamika:MemoryPingJingPower": {
+    "NAME": "平静？",
+    "DESCRIPTIONS": [
+      "每次打出非攻击牌时，获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "bamika:MemoryHuiShouPower": {
+    "NAME": "回首？",
+    "DESCRIPTIONS": [
+      "回合开始时，从弃牌堆将 #b",
+      " 张牌加入手牌，那些牌打出前耗能变为0。",
+      "选择一张加入手牌"
+    ]
+  },
+  "bamika:YuhuizhuanshuPower": {
+    "NAME": "迂回战术",
+    "DESCRIPTIONS": [
+      "#b",
+      " 回合内，造成伤害增加 #b50 %。"
+    ]
   }
 }

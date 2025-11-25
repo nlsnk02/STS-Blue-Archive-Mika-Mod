@@ -68,7 +68,10 @@ public class SelectFromGridAction extends AbstractGameAction {
         if (this.duration == Settings.ACTION_DUR_FAST) {
             if (this.selectedCards == null)
                 this.selectedCards = (List<AbstractCard>) Stream.of(
-                        new Stream[]{filterCards(player.hand, Source.HAND), filterCards(player.drawPile, Source.DRAW_PILE), filterCards(player.discardPile, Source.DISCARD_PILE)})
+                                new Stream[]{filterCards(player.hand, Source.HAND),
+                                        filterCards(player.drawPile, Source.DRAW_PILE),
+                                        filterCards(player.discardPile, Source.DISCARD_PILE),
+                                        filterCards(player.exhaustPile, Source.EXHAUST_PILE)})
                         .flatMap(g -> g).collect(Collectors.toList());
             if (this.selectedCards.isEmpty()) {
                 this.then.accept(new Source[0], new AbstractCard[0]);
@@ -130,7 +133,8 @@ public class SelectFromGridAction extends AbstractGameAction {
     private Source getSource(AbstractPlayer player, AbstractCard card) {
         return player.hand.contains(card) ? Source.HAND : (
                 player.drawPile.contains(card) ? Source.DRAW_PILE : (
-                        player.discardPile.contains(card) ? Source.DISCARD_PILE : Source.NONE));
+                        player.discardPile.contains(card) ? Source.DISCARD_PILE : (
+                                player.exhaustPile.contains(card) ? Source.EXHAUST_PILE : Source.NONE)));
     }
 
     private Stream<AbstractCard> filterCards(CardGroup cardGroup, Source source) {
@@ -138,6 +142,6 @@ public class SelectFromGridAction extends AbstractGameAction {
     }
 
     public enum Source {
-        NONE, DRAW_PILE, DISCARD_PILE, HAND, FREEZE_PILE;
+        NONE, DRAW_PILE, DISCARD_PILE, HAND, EXHAUST_PILE;
     }
 }

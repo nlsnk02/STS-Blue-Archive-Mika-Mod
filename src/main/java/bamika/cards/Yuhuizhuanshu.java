@@ -1,30 +1,28 @@
 package bamika.cards;
 
+import bamika.actions.DrawSpecificCardAction;
 import bamika.fantasyCard.AbstractMikaCard;
-import bamika.fantasyCard.Huishou;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import bamika.powers.YuhuizhuanshuPower;
+import bamika.utils.ModHelper;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
-public class Moran extends AbstractMikaCard {
+public class Yuhuizhuanshu extends AbstractMikaCard {
 
-    public Moran() {
-        super(Moran.class.getSimpleName(), 1, CardType.SKILL, CardRarity.RARE, CardTarget.NONE);
-        this.exhaust = true;
-        this.cardsToPreview = new Huishou();
+    public Yuhuizhuanshu() {
+        super(Yuhuizhuanshu.class.getSimpleName(), 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        ArrayList<AbstractCard> cards = new ArrayList<>(AbstractDungeon.player.hand.group);
-        cards.remove(this);
-
-        addToBot(new MakeTempCardInDiscardAction(new Huishou(cards), 1));
+        addToBot(new ApplyPowerAction(p, p, new YuhuizhuanshuPower(p, 1)));
     }
 
     @Override
@@ -37,7 +35,7 @@ public class Moran extends AbstractMikaCard {
 
     @Override
     public AbstractCard makeCopy() {
-        return new Moran();
+        return new Yuhuizhuanshu();
     }
 
 }

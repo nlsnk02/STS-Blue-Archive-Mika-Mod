@@ -1,6 +1,5 @@
-package bamika.cards;
+package bamika.fantasyCard;
 
-import bamika.fantasyCard.AbstractMikaCard;
 import bamika.utils.ModHelper;
 import bamika.utils.RecollectManager;
 import basemod.patches.com.megacrit.cardcrawl.cards.AbstractCard.MultiCardPreview;

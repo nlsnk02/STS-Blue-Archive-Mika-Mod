@@ -1,11 +1,13 @@
 package bamika.modcore;
 
+import bamika.cards.Tangruochonglai;
 import bamika.cards.Xunyixunlian;
 import bamika.character.Mika;
 import bamika.misc.SaveData;
 import bamika.powers.ZanbifengmangPower;
 import bamika.powers.ZhenguihuiyiPower;
 import bamika.utils.ConfigHelper;
+import bamika.utils.ExhaustOnlyOnceHelper;
 import bamika.utils.ModHelper;
 import bamika.utils.RecollectManager;
 import basemod.AutoAdd;
@@ -214,6 +216,7 @@ public class Core implements
 
     @Override
     public void receiveCardUsed(AbstractCard c) {
+        Tangruochonglai.onUseCard(c);
     }
 
     @Override
@@ -222,6 +225,8 @@ public class Core implements
         ZhenguihuiyiPower.cardsPlayed.clear();
         ZanbifengmangPower.idOffset = 0;
         Xunyixunlian.memoryCount = 0;
+        ExhaustOnlyOnceHelper.cards2Recover.clear();
+        Tangruochonglai.cardUsed.clear();
     }
 
     @Override
@@ -244,6 +249,7 @@ public class Core implements
 
     @Override
     public void receivePostExhaust(AbstractCard c) {
+        ExhaustOnlyOnceHelper.reset(c);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package bamika.utils;
 
+import bamika.cards.Tangruochonglai;
 import bamika.fantasyCard.AbstractMikaCard;
 import bamika.misc.OnRecallSubscriber;
 import bamika.modcore.Enums;
@@ -25,6 +26,9 @@ public class RecollectManager {
         //这个在update中更新
         public boolean isRecalled;
 
+        //暂时给倘若重来用的
+        public boolean leaveDiscard = false;
+
         public CardPosition() {
             this.position = CardGroup.CardGroupType.UNSPECIFIED;
             this.position_last = CardGroup.CardGroupType.UNSPECIFIED;
@@ -34,6 +38,7 @@ public class RecollectManager {
         public boolean checkStatus() {
             /*
             判断卡牌是否应该回想，返回卡牌是否应该触发回响
+            还加上了一些接口
              */
             boolean shouldRecall = false;
 
@@ -44,6 +49,13 @@ public class RecollectManager {
 
             if (getPositionValue(position) - getPositionValue(position_last) == 1) {
                 shouldRecall = true;
+            }
+
+            //特判倘若重来
+            if (position_last == CardGroup.CardGroupType.DISCARD_PILE && position_last != position) {
+                leaveDiscard = true;
+            } else {
+                leaveDiscard = false;
             }
 
             position_last = position;
@@ -78,6 +90,10 @@ public class RecollectManager {
 
                 if (!p.isRecalled) {
                     cardRecalling(c);
+                }
+
+                if (p.leaveDiscard) {
+                    Tangruochonglai.onLeaveDiscardPile(c);
                 }
 
                 p.isRecalled = true;
