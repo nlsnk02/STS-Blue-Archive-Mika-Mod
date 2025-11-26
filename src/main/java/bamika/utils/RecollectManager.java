@@ -1,5 +1,6 @@
 package bamika.utils;
 
+import bamika.cards.Huolimanman;
 import bamika.cards.Tangruochonglai;
 import bamika.fantasyCard.AbstractMikaCard;
 import bamika.misc.OnRecallSubscriber;
@@ -28,6 +29,9 @@ public class RecollectManager {
 
         //暂时给倘若重来用的
         public boolean leaveDiscard = false;
+        //给活力满满用的
+        public boolean leaveHand = false;
+        public boolean add2Hand = false;
 
         public CardPosition() {
             this.position = CardGroup.CardGroupType.UNSPECIFIED;
@@ -56,6 +60,19 @@ public class RecollectManager {
                 leaveDiscard = true;
             } else {
                 leaveDiscard = false;
+            }
+
+            //特判活力满满
+            if (position_last == CardGroup.CardGroupType.HAND && position_last != position) {
+                leaveHand = true;
+            } else {
+                leaveHand = false;
+            }
+
+            if (position == CardGroup.CardGroupType.HAND && position_last != position) {
+                add2Hand = true;
+            } else {
+                add2Hand = false;
             }
 
             position_last = position;
@@ -94,6 +111,11 @@ public class RecollectManager {
 
                 if (p.leaveDiscard) {
                     Tangruochonglai.onLeaveDiscardPile(c);
+                }
+                if (p.leaveHand || p.add2Hand) {
+                    if (c instanceof Huolimanman) {
+                        ((Huolimanman) c).onLeaveOrAdd();
+                    }
                 }
 
                 p.isRecalled = true;

@@ -1,5 +1,6 @@
 package bamika.utils;
 
+import bamika.misc.OnTimeTracingSubscriber;
 import bamika.misc.ReCollectGlowModifier;
 import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -91,6 +92,12 @@ public class ModHelper {
         if (cardGroup.type == CardGroup.CardGroupType.EXHAUST_PILE) {
             moveCard(c, cardGroup, AbstractDungeon.player.hand);
         }
+
+        AbstractDungeon.player.powers.forEach(power -> {
+            if(power instanceof OnTimeTracingSubscriber){
+                ((OnTimeTracingSubscriber) power).OnTimeTracing(c);
+            }
+        });
     }
 
     public static boolean moveCard(AbstractCard c, CardGroup to) {

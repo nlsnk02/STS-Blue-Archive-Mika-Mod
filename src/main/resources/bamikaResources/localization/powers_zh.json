@@ -42,9 +42,16 @@
     ]
   },
   "bamika:SuijiyingbianPower": {
-    "NAME": "免费打出",
+    "NAME": "本回合免费打出",
     "DESCRIPTIONS": [
       "本回合下 #b",
+      " 张牌免费打出。"
+    ]
+  },
+  "bamika:XvshiPower": {
+    "NAME": "免费打出",
+    "DESCRIPTIONS": [
+      "下 #b",
       " 张牌免费打出。"
     ]
   },
@@ -68,6 +75,13 @@
     "DESCRIPTIONS": [
       "#b",
       " 回合内，造成伤害增加 #b50 %。"
+    ]
+  },
+  "bamika:JiashenyinxiangPower": {
+    "NAME": "加深印象",
+    "DESCRIPTIONS": [
+      "每 #y溯时 #b2 次，获得 #b",
+      " [E] 。"
     ]
   }
 }

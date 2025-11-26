@@ -256,5 +256,41 @@
     "NAME": "可塑性记忆",
     "DESCRIPTION": "虚无 。 NL 记录你每回合打出的第一张牌，下回合开始，将其放入你的手牌且耗能变为0。（只限在抽牌堆或弃牌堆的牌）",
     "UPGRADE_DESCRIPTION": "记录你每回合打出的第一张牌，下回合开始，将其放入你的手牌且耗能变为0。（只限在抽牌堆或弃牌堆的牌）"
+  },
+  "bamika:Huolimanman": {
+    "NAME": "活力满满",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 当此牌进入与离开你的手牌时，获得 !M! 点 活力 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Sikao": {
+    "NAME": "思考",
+    "DESCRIPTION": "bamika:溯时 两张手牌。 NL 获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "bamika:溯时 两张手牌。 NL 获得 [E] [E] 。",
+    "EXTENDED_DESCRIPTION": [
+      "两张牌溯时"
+    ]
+  },
+  "bamika:Jianxuan": {
+    "NAME": "拣选",
+    "DESCRIPTION": "抽 !M! 张牌，选择一张放回抽牌堆。",
+    "UPGRADE_DESCRIPTION": "wwwwww",
+    "EXTENDED_DESCRIPTION": [
+      "返回抽牌堆"
+    ]
+  },
+  "bamika:Huixuanti": {
+    "NAME": "回旋踢",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 将你使用的上一张牌放回手牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Jiashenyinxiang": {
+    "NAME": "加深印象",
+    "DESCRIPTION": "每 bamika:溯时 两张牌，获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 每 bamika:溯时 两张牌，获得 [E] 。"
+  },
+  "bamika:Xvshi": {
+    "NAME": "蓄势",
+    "DESCRIPTION": "下一张牌免费打出。",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 下一张牌免费打出。"
   }
 }
