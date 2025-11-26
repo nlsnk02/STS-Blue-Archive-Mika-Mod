@@ -83,5 +83,13 @@
       "每 #y溯时 #b2 次，获得 #b",
       " [E] 。"
     ]
+  },
+  "bamika:YousheyoudePower": {
+    "NAME": "有舍有得",
+    "DESCRIPTIONS": [
+      "每次打出 #y保留 牌时，抽 #b",
+      " 张牌，并且切换为获得 #b",
+      " [E] 。"
+    ]
   }
 }

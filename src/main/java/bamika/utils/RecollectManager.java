@@ -1,11 +1,10 @@
 package bamika.utils;
 
-import bamika.cards.Huolimanman;
 import bamika.cards.Tangruochonglai;
 import bamika.fantasyCard.AbstractMikaCard;
+import bamika.misc.ChangePositionSubscriber;
 import bamika.misc.OnRecallSubscriber;
 import bamika.modcore.Enums;
-import basemod.helpers.CardModifierManager;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -29,9 +28,6 @@ public class RecollectManager {
 
         //暂时给倘若重来用的
         public boolean leaveDiscard = false;
-        //给活力满满用的
-        public boolean leaveHand = false;
-        public boolean add2Hand = false;
 
         public CardPosition() {
             this.position = CardGroup.CardGroupType.UNSPECIFIED;
@@ -39,7 +35,7 @@ public class RecollectManager {
             this.isRecalled = false;
         }
 
-        public boolean checkStatus() {
+        public boolean checkStatus(AbstractCard owner) {
             /*
             判断卡牌是否应该回想，返回卡牌是否应该触发回响
             还加上了一些接口
@@ -55,24 +51,15 @@ public class RecollectManager {
                 shouldRecall = true;
             }
 
+            if(position_last != position && owner instanceof ChangePositionSubscriber){
+                ((ChangePositionSubscriber) owner).onChangePosition(position_last, position);
+            }
+
             //特判倘若重来
             if (position_last == CardGroup.CardGroupType.DISCARD_PILE && position_last != position) {
                 leaveDiscard = true;
             } else {
                 leaveDiscard = false;
-            }
-
-            //特判活力满满
-            if (position_last == CardGroup.CardGroupType.HAND && position_last != position) {
-                leaveHand = true;
-            } else {
-                leaveHand = false;
-            }
-
-            if (position == CardGroup.CardGroupType.HAND && position_last != position) {
-                add2Hand = true;
-            } else {
-                add2Hand = false;
             }
 
             position_last = position;
@@ -103,7 +90,7 @@ public class RecollectManager {
 
         cardPositions.keySet().stream().forEach(c -> {
             CardPosition p = cardPositions.get(c);
-            if (p.checkStatus()) {
+            if (p.checkStatus(c)) {
 
                 if (!p.isRecalled) {
                     cardRecalling(c);
@@ -111,11 +98,6 @@ public class RecollectManager {
 
                 if (p.leaveDiscard) {
                     Tangruochonglai.onLeaveDiscardPile(c);
-                }
-                if (p.leaveHand || p.add2Hand) {
-                    if (c instanceof Huolimanman) {
-                        ((Huolimanman) c).onLeaveOrAdd();
-                    }
                 }
 
                 p.isRecalled = true;

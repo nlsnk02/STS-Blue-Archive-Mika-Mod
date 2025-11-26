@@ -292,5 +292,18 @@
     "NAME": "蓄势",
     "DESCRIPTION": "下一张牌免费打出。",
     "UPGRADE_DESCRIPTION": "保留 。 NL 下一张牌免费打出。"
+  },
+  "bamika:Wannengyaoshi": {
+    "NAME": "万能钥匙",
+    "DESCRIPTION": "当此牌进入非手牌区时，选择将当前区域内一张牌加入手牌。",
+    "UPGRADE_DESCRIPTION": "虚无 。 NL 当此牌进入非手牌区时，选择将当前区域内一张牌加入手牌。",
+    "EXTENDED_DESCRIPTION": [
+      "加入手牌"
+    ]
+  },
+  "bamika:Yousheyoude": {
+    "NAME": "有舍有得",
+    "DESCRIPTION": "当你打出 保留 牌后，抽两张牌并切换为获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "固有 。 NL 当你打出 保留 牌后，抽两张牌并切换为获得 [E] 。"
   }
 }

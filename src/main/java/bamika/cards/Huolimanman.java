@@ -2,11 +2,13 @@ package bamika.cards;
 
 import bamika.actions.SelectFromGridAction;
 import bamika.fantasyCard.AbstractMikaCard;
+import bamika.misc.ChangePositionSubscriber;
 import bamika.utils.ModHelper;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
-public class Huolimanman extends AbstractMikaCard {
+public class Huolimanman extends AbstractMikaCard implements ChangePositionSubscriber {
 
     public Huolimanman() {
         super(Huolimanman.class.getSimpleName(), 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
@@ -25,10 +27,14 @@ public class Huolimanman extends AbstractMikaCard {
         this.damage = this.baseDamage = 7;
     }
 
-    public void onLeaveOrAdd() {
-        applyPowers();
-        addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                new VigorPower(AbstractDungeon.player, this.magicNumber)));
+
+    @Override
+    public void onChangePosition(CardGroup.CardGroupType from, CardGroup.CardGroupType to) {
+        if (from == CardGroup.CardGroupType.HAND || to == CardGroup.CardGroupType.HAND) {
+            applyPowers();
+            addToBot(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                    new VigorPower(AbstractDungeon.player, this.magicNumber)));
+        }
     }
 
     @Override
@@ -50,5 +56,4 @@ public class Huolimanman extends AbstractMikaCard {
     public AbstractCard makeCopy() {
         return new Huolimanman();
     }
-
 }
