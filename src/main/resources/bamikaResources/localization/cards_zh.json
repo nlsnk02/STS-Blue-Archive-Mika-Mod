@@ -305,5 +305,15 @@
     "NAME": "有舍有得",
     "DESCRIPTION": "当你打出 保留 牌后，抽两张牌并切换为获得 [E] 。",
     "UPGRADE_DESCRIPTION": "固有 。 NL 当你打出 保留 牌后，抽两张牌并切换为获得 [E] 。"
+  },
+  "bamika:Beishuiyizhan": {
+    "NAME": "背水一战",
+    "DESCRIPTION": "抽X张牌。 NL 进入神格 。 NL 打出X+ !M! 张牌后死亡。 NL （ 保留 牌不会增加计数。）",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 抽X张牌。 NL 进入神格 。 NL 打出X+ !M! 张牌后死亡。 NL （ 保留 牌不会增加计数。）"
+  },
+  "bamika:Xingyunbi": {
+    "NAME": "幸运币",
+    "DESCRIPTION": "当这张牌被使用或 bamika:溯时 ，获得 [E] 。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "当这张牌被使用或 bamika:溯时 ，获得 [E] [E] 。 NL 消耗 。"
   }
 }

@@ -98,6 +98,9 @@ public class ModHelper {
                 ((OnTimeTracingSubscriber) power).OnTimeTracing(c);
             }
         });
+        if(c instanceof  OnTimeTracingSubscriber){
+            ((OnTimeTracingSubscriber) c).OnTimeTracing(c);
+        }
     }
 
     public static boolean moveCard(AbstractCard c, CardGroup to) {

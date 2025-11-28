@@ -62,6 +62,13 @@
       " 点 #y力量 。"
     ]
   },
+  "bamika:BeishuiyizhanPower": {
+    "NAME": "背水一战",
+    "DESCRIPTIONS": [
+      "打出 #b",
+      " 张牌后， #r死亡 。"
+    ]
+  },
   "bamika:MemoryHuiShouPower": {
     "NAME": "回首？",
     "DESCRIPTIONS": [
