@@ -98,5 +98,13 @@
       " 张牌，并且切换为获得 #b",
       " [E] 。"
     ]
+  },
+  "bamika:DangxiayuweilaiPower": {
+    "NAME": "当下与未来",
+    "DESCRIPTIONS": [
+      "下回合开始时，选择 #b",
+      " 张手牌 #y溯时 。",
+      "溯时"
+    ]
   }
 }

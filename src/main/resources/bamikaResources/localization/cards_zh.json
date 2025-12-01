@@ -308,12 +308,42 @@
   },
   "bamika:Beishuiyizhan": {
     "NAME": "背水一战",
-    "DESCRIPTION": "抽X张牌。 NL 进入神格 。 NL 打出X+ !M! 张牌后死亡。 NL （ 保留 牌不会增加计数。）",
-    "UPGRADE_DESCRIPTION": "保留 。 NL 抽X张牌。 NL 进入神格 。 NL 打出X+ !M! 张牌后死亡。 NL （ 保留 牌不会增加计数。）"
+    "DESCRIPTION": "抽X张牌。 NL 进入不会自动退出的神格 。 NL 打出X+ !M! 张牌后死亡。 NL （ 保留 牌不会增加计数。）",
+    "UPGRADE_DESCRIPTION": "保留 。 NL 抽X张牌。 NL 进入不会自动退出的神格 。 NL 打出X+ !M! 张牌后死亡。 NL （ 保留 牌不会增加计数。）"
   },
   "bamika:Xingyunbi": {
     "NAME": "幸运币",
     "DESCRIPTION": "当这张牌被使用或 bamika:溯时 ，获得 [E] 。 NL 消耗 。",
     "UPGRADE_DESCRIPTION": "当这张牌被使用或 bamika:溯时 ，获得 [E] [E] 。 NL 消耗 。"
+  },
+  "bamika:Huisu": {
+    "NAME": "回溯",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果本场战斗打出此牌是第：奇数次，记录此时 [E] 。偶数次，将 [E] 调整至记录值。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 如果本场战斗打出此牌是第：奇数次，记录此时 [E] 。偶数次，将 [E] 调整至记录值。 NL bamika:溯时 。"
+  },
+  "bamika:Zhuanzhuyidian": {
+    "NAME": "专注一点",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次。 NL 力量 会同时作用于攻击次数。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Xuexidengcha": {
+    "NAME": "学习等差",
+    "DESCRIPTION": "造成 !D! 点伤害，伤害降低1后重复一次，直到减至0。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Dangxiayuweilai": {
+    "NAME": "当下与未来",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 下回合抽牌后选择 bamika:溯时 其中一张。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Keshihua": {
+    "NAME": "可视化",
+    "DESCRIPTION": "预见 !M! 。 NL 选中的 保留 牌会改为抽取。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Lianshe": {
+    "NAME": "连射",
+    "DESCRIPTION": "保留 。 NL 造成 !D! 点伤害 !M! 次。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
   }
 }
