@@ -345,5 +345,15 @@
     "NAME": "连射",
     "DESCRIPTION": "保留 。 NL 造成 !D! 点伤害 !M! 次。",
     "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Shanghaipinggu": {
+    "NAME": "伤害评估",
+    "DESCRIPTION": "防止 !M! 次超过 格挡 值的伤害。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
+  },
+  "bamika:Zhencang": {
+    "NAME": "珍藏",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 抽 !M! 张 保留 牌。",
+    "UPGRADE_DESCRIPTION": "wwwwww"
   }
 }

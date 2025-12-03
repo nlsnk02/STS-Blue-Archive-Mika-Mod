@@ -106,5 +106,12 @@
       " 张手牌 #y溯时 。",
       "溯时"
     ]
+  },
+  "bamika:ShanghaipingguPower": {
+    "NAME": "伤害评估",
+    "DESCRIPTIONS": [
+      "抵挡下 #b",
+      " 次超过 #y格挡 的伤害。"
+    ]
   }
 }
